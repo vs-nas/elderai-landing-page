@@ -1,13 +1,9 @@
-import { HeroGeometric } from "@/components/ui/shape-landing-hero";
+import { CinematicHero } from "@/components/ui/cinematic-landing-hero";
 
-function DemoHeroGeometric() {
-    return (
-      <HeroGeometric 
-        badge="Kokonut UI"
-        title1="Elevate Your"
-        title2="Digital Vision" 
-      />
-    );
+export default function CinematicHeroDemo() {
+  return (
+    <div className="overflow-x-hidden w-[100%] min-h-screen">
+      <CinematicHero />
+    </div>
+  );
 }
-
-export { DemoHeroGeometric };

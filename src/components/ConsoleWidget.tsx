@@ -40,7 +40,7 @@ const PATIENTS: Record<PatientName, PatientData> = {
     nextCall: "6:30 PM",
     lastCallDuration: "01:50",
     dialogue: [
-      { speaker: "ai", text: "Hello Robert. This is CareCall checking in. How is your knee pain today?" },
+      { speaker: "ai", text: "Hello Robert. This is ElderAI checking in. How is your knee pain today?" },
       { speaker: "user", text: "It's a bit stiff, but I took the pain relief as prescribed." },
       { speaker: "ai", text: "Okay, make sure to rest it. Did you go for your short walk?" },
       { speaker: "user", text: "Yes, just down the driveway and back." },

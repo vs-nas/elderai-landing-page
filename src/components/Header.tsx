@@ -23,7 +23,7 @@ const ElderAILogo = () => (
         <path d="M9 22v-2" />
       </svg>
     </div>
-    <span style={{ fontSize: "20px", fontWeight: 700, color: "white", letterSpacing: "-0.02em" }}>ElderAI</span>
+    <span style={{ fontSize: "20px", fontWeight: 700, color: "#0f172a", letterSpacing: "-0.02em" }}>ElderAI</span>
   </div>
 );
 

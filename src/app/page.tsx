@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Header from "@/components/Header";
-import ConsoleWidget from "@/components/ConsoleWidget";
-import { HeroGeometric } from "@/components/ui/shape-landing-hero";
+import { CinematicHero } from "@/components/ui/cinematic-landing-hero";
 import styles from "./page.module.css";
 
 // --- PROFESSIONAL SVG ICONS ---
@@ -120,28 +119,8 @@ export default function Home() {
       {/* Navigation Header */}
       <Header />
 
-      {/* Hero Section with Kokonut UI Geometric Shapes */}
-      <HeroGeometric
-        badge="Live AI Wellness Calls · Now Available"
-        title1="AI Voice Agents For"
-        title2="Elder Care Monitoring"
-      >
-        <p className={styles.subheading} style={{ zIndex: 10, position: "relative", marginBottom: "32px", marginTop: "12px" }}>
-          Autonomous voice agents that call, monitor, and report on the wellbeing of elderly family members — 24/7.
-        </p>
-
-        <div className={styles.heroCta} style={{ zIndex: 10, position: "relative", marginBottom: "48px" }}>
-          <Link href="/dashboard" className={`${styles.getStartedBtn} ${styles.btnHero}`}>
-            Start Free Trial
-          </Link>
-          <Link href="/dashboard" className={`${styles.loginBtn} ${styles.btnHero}`}>
-            ▶ Watch Demo
-          </Link>
-        </div>
-
-        {/* Console and Metrics Widget */}
-        <ConsoleWidget />
-      </HeroGeometric>
+      {/* Immersive Cinematic Hero Section */}
+      <CinematicHero />
 
       {/* Showcase Section (Replacing Giphy Gifs with Modern CSS illustrations) */}
       <section className={styles.showcaseSection}>
@@ -348,7 +327,7 @@ export default function Home() {
       </section>
 
       {/* Analytics Section Note / Header */}
-      <section id="analytics" className={styles.featuresSection} style={{ borderTop: "1px solid rgba(255, 255, 255, 0.05)" }}>
+      <section id="analytics" className={styles.featuresSection} style={{ borderTop: "1px solid rgba(15, 23, 42, 0.06)" }}>
         <div className={styles.sectionEyebrow}>
           <span className={styles.eyebrowLine} />
           Real-Time Reporting
@@ -498,7 +477,7 @@ export default function Home() {
                   <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8a7 7 0 0 1-9 8.2z" />
                 </svg>
               </div>
-              <span style={{ fontSize: "18px", fontWeight: 800, color: "white" }}>ElderAI</span>
+              <span style={{ fontSize: "18px", fontWeight: 800, color: "#0f172a" }}>ElderAI</span>
             </div>
             <p style={{ marginTop: "12px" }}>
               ElderAI — AI-powered wellness calls that remind, care, and keep families informed. Stay connected with elderly loved ones through intelligent voice calls.
@@ -534,7 +513,7 @@ export default function Home() {
           <div className={styles.footerBottomText}>
             &copy; 2026 ElderAI Inc. All rights reserved.
           </div>
-          <div className={styles.footerBottomText} style={{ color: "rgba(255, 255, 255, 0.2)" }}>
+          <div className={styles.footerBottomText} style={{ color: "rgba(15, 23, 42, 0.35)" }}>
             Made with Next.js and ❤️ for families.
           </div>
         </div>
