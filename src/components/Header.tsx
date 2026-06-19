@@ -71,7 +71,7 @@ export default function Header() {
       </nav>
 
       <div className={styles.headerActions}>
-        <Link href="https://elder-ai-dashboard.vercel.app/" className={styles.loginBtn}>
+        <Link href="https://elder-ai-dashboard.vercel.app/signin" className={styles.loginBtn}>
           Sign in
         </Link>
         <Link href="https://elder-ai-dashboard.vercel.app/" className={styles.getStartedBtn}>

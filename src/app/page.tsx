@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import Header from "@/components/Header";
 import HeroPhoto from "@/components/HeroPhoto";
+import { FloatingPaths } from "@/components/ui/background-paths";
 import styles from "./page.module.css";
 
 // --- PROFESSIONAL SVG ICONS ---
@@ -83,6 +86,13 @@ const IconReport = () => (
   </svg>
 );
 
+const IconLineChart = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 3v18h18" />
+    <path d="m19 9-5 5-4-4-3 3" />
+  </svg>
+);
+
 // Health emblems for Marquee Logos
 const LogoHospital = () => (
   <svg className={styles.marqueeLogoIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -124,6 +134,12 @@ export default function Home() {
 
       {/* Showcase Section (Replacing Giphy Gifs with Modern CSS illustrations) */}
       <section className={styles.showcaseSection}>
+        <div className={styles.sectionEyebrow}>
+          <span className={styles.eyebrowLine} />
+          Real-Time Insights
+          <span className={styles.eyebrowLine} />
+        </div>
+        <h2 className={styles.sectionTitle}>Technical Reliability. Human Warmth.</h2>
         <div className={styles.gifGrid}>
           {/* Card 1: AI Call Simulation Visualizer */}
           <div className={styles.gifCard}>
@@ -139,8 +155,9 @@ export default function Home() {
                 <div className={styles.pulseRing3} />
               </div>
             </div>
-            <div className={styles.gifCaption}>
-              AI Voice Agent conducting wellness check-ins
+            <div className={styles.showcaseMeta}>
+              <h3 className={styles.showcaseTitle}>AI Voice Agent</h3>
+              <p className={styles.showcaseDesc}>Intelligent wellness check-ins that sound as natural as family.</p>
             </div>
           </div>
 
@@ -149,21 +166,38 @@ export default function Home() {
             <div className={styles.illustrationContainer}>
               <div className={styles.notifShowcaseList}>
                 <div className={styles.notifShowcaseItem}>
-                  <div className={styles.notifDot} style={{ backgroundColor: "#22c55e" }} />
-                  <span>Mom answered morning call: <strong>Healthy</strong></span>
+                  <div className={styles.widgetIconWrap} style={{ width: "24px", height: "24px", minWidth: "24px", backgroundColor: "rgba(34, 197, 94, 0.08)", borderColor: "rgba(34, 197, 94, 0.15)", color: "#22c55e" }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </div>
+                  <span>Mom answered morning call: <strong style={{ color: "#22c55e" }}>Healthy</strong></span>
                 </div>
                 <div className={styles.notifShowcaseItem}>
-                  <div className={styles.notifDot} style={{ backgroundColor: "#fbbf24" }} />
-                  <span>Meds Compliance logged: <strong>100%</strong></span>
+                  <div className={styles.widgetIconWrap} style={{ width: "24px", height: "24px", minWidth: "24px", backgroundColor: "rgba(245, 158, 11, 0.08)", borderColor: "rgba(245, 158, 11, 0.15)", color: "#f59e0b" }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" />
+                      <path d="m8.5 8.5 7 7" />
+                    </svg>
+                  </div>
+                  <span>Meds Compliance logged: <strong style={{ color: "#d97706" }}>100%</strong></span>
                 </div>
                 <div className={styles.notifShowcaseItem}>
-                  <div className={styles.notifDot} style={{ backgroundColor: "#38bdf8" }} />
+                  <div className={styles.widgetIconWrap} style={{ width: "24px", height: "24px", minWidth: "24px", backgroundColor: "rgba(148, 163, 184, 0.08)", borderColor: "rgba(148, 163, 184, 0.15)", color: "#64748b" }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                      <polyline points="14 2 14 8 20 8" />
+                      <line x1="16" y1="13" x2="8" y2="13" />
+                      <line x1="16" y1="17" x2="8" y2="17" />
+                    </svg>
+                  </div>
                   <span>Weekly Wellness Report ready</span>
                 </div>
               </div>
             </div>
-            <div className={styles.gifCaption}>
-              Real-time family updates and insights
+            <div className={styles.showcaseMeta}>
+              <h3 className={styles.showcaseTitle}>Instant Family Feed</h3>
+              <p className={styles.showcaseDesc}>Stay connected with automated logging and real-time status updates.</p>
             </div>
           </div>
 
@@ -180,17 +214,27 @@ export default function Home() {
                 <div className={styles.dashboardVisualGrid}>
                   <div className={styles.dashBlock}>
                     <span className={styles.dashLabel}>WELLNESS</span>
-                    <span className={styles.dashValue}>94%</span>
+                    <span className={styles.dashValue} style={{ color: "#b45309" }}>94%</span>
+                    <div className={styles.dashUnderline} style={{ backgroundColor: "#b45309" }} />
                   </div>
                   <div className={styles.dashBlock}>
                     <span className={styles.dashLabel}>MEDS LOG</span>
-                    <span className={styles.dashValue} style={{ color: "#d97706" }}>98%</span>
+                    <span className={styles.dashValue} style={{ color: "#0f172a" }}>98%</span>
+                    <div className={styles.dashUnderline} style={{ backgroundColor: "#0f172a" }} />
                   </div>
+                </div>
+                <div className={styles.dashChart}>
+                  <div className={styles.dashBar} style={{ height: "20px", backgroundColor: "#fef3c7" }} />
+                  <div className={styles.dashBar} style={{ height: "32px", backgroundColor: "#fef3c7" }} />
+                  <div className={styles.dashBar} style={{ height: "24px", backgroundColor: "#fef3c7" }} />
+                  <div className={styles.dashBar} style={{ height: "48px", backgroundColor: "#d97706" }} />
+                  <div className={styles.dashBar} style={{ height: "60px", backgroundColor: "#b45309" }} />
                 </div>
               </div>
             </div>
-            <div className={styles.gifCaption}>
-              Modern analytics dashboard with wellness tracking
+            <div className={styles.showcaseMeta}>
+              <h3 className={styles.showcaseTitle}>Modern Dashboard</h3>
+              <p className={styles.showcaseDesc}>Powerful visualization of wellness trends and medical adherence.</p>
             </div>
           </div>
         </div>
@@ -198,28 +242,32 @@ export default function Home() {
 
       {/* Trust & Stats Section */}
       <section id="trust" className={styles.trustSection}>
-        <div className={styles.trustContainer}>
-          <div className={styles.trustStats}>
-            <div className={styles.trustStat}>
-              <div className={styles.trustStatNum}>2,500+</div>
-              <div className={styles.trustStatLabel}>Families Protected</div>
-            </div>
-            <div className={styles.trustStat}>
-              <div className={styles.trustStatNum}>85,000+</div>
-              <div className={styles.trustStatLabel}>Wellness Calls Made</div>
-            </div>
-            <div className={styles.trustStat}>
-              <div className={styles.trustStatNum}>99.2%</div>
-              <div className={styles.trustStatLabel}>Reminder Success Rate</div>
-            </div>
-            <div className={styles.trustStat}>
-              <div className={styles.trustStatNum}>24/7</div>
-              <div className={styles.trustStatLabel}>AI Availability</div>
+        <div className={styles.trustStatsContainer}>
+          <div className={styles.trustContainer}>
+            <div className={styles.trustStats}>
+              <div className={styles.trustStat}>
+                <div className={styles.trustStatNum}>2,500+</div>
+                <div className={styles.trustStatLabel}>Families Protected</div>
+              </div>
+              <div className={styles.trustStat}>
+                <div className={styles.trustStatNum}>85,000+</div>
+                <div className={styles.trustStatLabel}>Wellness Calls Made</div>
+              </div>
+              <div className={styles.trustStat}>
+                <div className={styles.trustStatNum}>99.2%</div>
+                <div className={styles.trustStatLabel}>Reminder Success Rate</div>
+              </div>
+              <div className={styles.trustStat}>
+                <div className={styles.trustStatNum}>24/7</div>
+                <div className={styles.trustStatLabel}>AI Availability</div>
+              </div>
             </div>
           </div>
+        </div>
 
+        <div className={styles.trustLogosContainer}>
           <div className={styles.marqueeLabel}>Trusted by families across healthcare networks</div>
-          
+
           <div className={styles.marqueeWrap}>
             <div className={styles.marqueeTrack}>
               <div className={styles.marqueeLogo}><LogoHospital /> MedCare Network</div>
@@ -253,29 +301,85 @@ export default function Home() {
         </div>
         <h2 className={styles.sectionTitle}>Up and running in minutes</h2>
         <p className={styles.sectionSub}>
-          No apps for your loved ones to install. No tech skills required. Just real phone calls, powered by AI.
+          No apps for your loved ones to install. No tech skills required. Just real phone calls, powered by compassionate AI.
         </p>
 
         <div className={styles.stepsRow}>
           <div className={styles.stepCard}>
+            <span className={styles.stepBadge}>01</span>
             <div className={styles.stepNum}><IconUserAdd /></div>
             <div className={styles.stepTitle}>Add Loved Ones</div>
             <div className={styles.stepDesc}>Enter their phone number, name, and any health notes. Takes under two minutes.</div>
           </div>
           <div className={styles.stepCard}>
-            <div className={styles.stepNum}><IconClock /></div>
+            <span className={styles.stepBadge}>02</span>
+            <div className={styles.stepNum}><IconCalendar /></div>
             <div className={styles.stepTitle}>Schedule Reminders</div>
             <div className={styles.stepDesc}>Set medication times, wellness check-ins, and appointment reminders on your schedule.</div>
           </div>
           <div className={styles.stepCard}>
+            <span className={styles.stepBadge}>03</span>
             <div className={styles.stepNum}><IconPhone /></div>
             <div className={styles.stepTitle}>AI Makes Calls</div>
             <div className={styles.stepDesc}>ElderAI&apos;s voice agents place natural phone check-ins exactly when scheduled — no apps needed.</div>
           </div>
           <div className={styles.stepCard}>
-            <div className={styles.stepNum}><IconReport /></div>
+            <span className={styles.stepBadge}>04</span>
+            <div className={styles.stepNum}><IconLineChart /></div>
             <div className={styles.stepTitle}>Receive Insights</div>
             <div className={styles.stepDesc}>Get reports on mood, wellness trends, and medication adherence delivered to your dashboard.</div>
+          </div>
+        </div>
+
+        {/* New Side-by-Side Callout Block */}
+        <div className={styles.calloutCard}>
+          {/* Section Background Paths */}
+          <div className="absolute inset-0 overflow-hidden rounded-[32px] pointer-events-none z-0">
+            <FloatingPaths position={1} className="w-full h-full" />
+            <FloatingPaths position={-1} className="w-full h-full" />
+          </div>
+
+          <div className={styles.calloutLeft} style={{ zIndex: 1 }}>
+            <h3 className={styles.calloutTitle}>
+              Compassionate Care, <br />
+              <span className={styles.calloutTitleMuted}>Always Remembered.</span>
+            </h3>
+            <p className={styles.calloutDesc}>
+              Our AI understands context and emotion, adapting its tone to provide genuine comfort and clear guidance.
+            </p>
+          </div>
+
+          <div className={styles.calloutRight} style={{ zIndex: 1 }}>
+            <div className={styles.calloutWidgetList} style={{ marginTop: 0, width: "100%" }}>
+              <div className={styles.widgetItem}>
+                <div className={styles.widgetIconWrap}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </div>
+                <div className={styles.widgetText}>
+                  <div className={styles.widgetTitle}>Automated Wellness Check</div>
+                  <div className={styles.widgetSub}>&quot;Hi Sarah! Have you taken your vitamins today?&quot;</div>
+                </div>
+                <div className={styles.widgetActiveStatus}>
+                  <span className={styles.activeDot} />
+                  ACTIVE
+                </div>
+              </div>
+
+              <div className={styles.widgetItem}>
+                <div className={styles.widgetIconWrap} style={{ backgroundColor: "#ffffff", borderColor: "rgba(15, 23, 42, 0.08)", color: "#94a3b8" }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                  </svg>
+                </div>
+                <div className={styles.widgetText}>
+                  <div className={styles.widgetTitle}>Medication Reminder</div>
+                  <div className={styles.widgetSub}>Next scheduled check-in: 4:00 PM</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -327,7 +431,7 @@ export default function Home() {
       </section>
 
       {/* Analytics Section Note / Header */}
-      <section id="analytics" className={styles.featuresSection} style={{ borderTop: "1px solid rgba(15, 23, 42, 0.06)" }}>
+      {/* <section id="analytics" className={styles.featuresSection} style={{ borderTop: "1px solid rgba(15, 23, 42, 0.06)" }}>
         <div className={styles.sectionEyebrow}>
           <span className={styles.eyebrowLine} />
           Real-Time Reporting
@@ -337,7 +441,7 @@ export default function Home() {
         <p className={styles.sectionSub} style={{ marginBottom: "0" }}>
           Gain actionable insights through sentiment evaluation, wellness tracking, and automated summaries logged after each conversation.
         </p>
-      </section>
+      </section> */}
 
       {/* Pricing Section */}
       <section id="pricing" className={styles.pricingSection}>
@@ -375,7 +479,7 @@ export default function Home() {
                 1 Family Member Access
               </div>
             </div>
-            <Link href="https://elder-ai-dashboard.vercel.app/" className={`${styles.btnPrice} ${styles.btnPriceGhost}`}>
+            <Link href="https://elder-ai-dashboard.vercel.app/signup?plan=starter" className={`${styles.btnPrice} ${styles.btnPriceGhost}`}>
               Choose Starter
             </Link>
           </div>
@@ -413,7 +517,7 @@ export default function Home() {
                 5 Family Members Access
               </div>
             </div>
-            <Link href="https://elder-ai-dashboard.vercel.app/" className={`${styles.btnPrice} ${styles.btnPriceFilled}`}>
+            <Link href="https://elder-ai-dashboard.vercel.app/signup?plan=family" className={`${styles.btnPrice} ${styles.btnPriceFilled}`}>
               Choose Family
             </Link>
           </div>
@@ -425,7 +529,7 @@ export default function Home() {
         <div className={styles.footerInner}>
           <div className={styles.footerBrand}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <div style={{
+              {/* <div style={{
                 width: "28px",
                 height: "28px",
                 borderRadius: "6px",
@@ -439,7 +543,7 @@ export default function Home() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8a7 7 0 0 1-9 8.2z" />
                 </svg>
-              </div>
+              </div> */}
               <span style={{ fontSize: "18px", fontWeight: 800, color: "#0f172a" }}>ElderAI</span>
             </div>
             <p style={{ marginTop: "12px" }}>

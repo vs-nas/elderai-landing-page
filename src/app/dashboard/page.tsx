@@ -333,12 +333,12 @@ export default function DashboardPage() {
       <aside className={styles.sidebar}>
         <div>
           <div className={styles.sidebarBrand}>
-            <div className={styles.sidebarIconContainer}>
+            {/* <div className={styles.sidebarIconContainer}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8a7 7 0 0 1-9 8.2z" />
                 <path d="M9 22v-2" />
               </svg>
-            </div>
+            </div> */}
             <span>ElderAI</span>
           </div>
 
@@ -538,8 +538,8 @@ export default function DashboardPage() {
                       <div key={log.id} className={styles.callRow}>
                         <div className={styles.callProfile}>
                           <div className={styles.callToneIcon} style={{
-                             backgroundColor: log.tone === "happy" ? "#ecfdf5" : log.tone === "sad" ? "#fef2f2" : log.tone === "confused" ? "#fff7ed" : log.tone === "low energy" ? "#fffbeb" : "#f1f5f9",
-                             color: log.tone === "happy" ? "#059669" : log.tone === "sad" ? "#dc2626" : log.tone === "confused" ? "#d97706" : log.tone === "low energy" ? "#d97706" : "#475569"
+                            backgroundColor: log.tone === "happy" ? "#ecfdf5" : log.tone === "sad" ? "#fef2f2" : log.tone === "confused" ? "#fff7ed" : log.tone === "low energy" ? "#fffbeb" : "#f1f5f9",
+                            color: log.tone === "happy" ? "#059669" : log.tone === "sad" ? "#dc2626" : log.tone === "confused" ? "#d97706" : log.tone === "low energy" ? "#d97706" : "#475569"
                           }}>
                             {log.tone === "happy" ? "😊" : log.tone === "sad" ? "🙁" : log.tone === "confused" ? "😕" : log.tone === "low energy" ? "🥱" : "🔇"}
                           </div>
@@ -550,9 +550,8 @@ export default function DashboardPage() {
                             </span>
                           </div>
                         </div>
-                        <span className={`${styles.toneBadge} ${
-                          log.tone === "happy" ? styles.badgeHappy : log.tone === "sad" ? styles.badgeSad : log.tone === "confused" ? styles.badgeConfused : log.tone === "low energy" ? styles.badgeLowEnergy : styles.badgeNoAnswer
-                        }`}>
+                        <span className={`${styles.toneBadge} ${log.tone === "happy" ? styles.badgeHappy : log.tone === "sad" ? styles.badgeSad : log.tone === "confused" ? styles.badgeConfused : log.tone === "low energy" ? styles.badgeLowEnergy : styles.badgeNoAnswer
+                          }`}>
                           {log.tone}
                         </span>
                       </div>
@@ -566,7 +565,7 @@ export default function DashboardPage() {
                   <div className={styles.card}>
                     <h3 className={styles.cardTitle}>Weekly Mood — Eleanor</h3>
                     <div className={styles.moodChartSubtitle}>AI-detected tone across all calls this week</div>
-                    
+
                     <div className={styles.moodBarsStack}>
                       <div className={styles.moodBarRow}>
                         <div className={styles.moodBarLabel}>😊 Happy</div>
@@ -645,9 +644,8 @@ export default function DashboardPage() {
                     {alerts.filter(a => a.status === "Unacknowledged").slice(0, 2).map((alert) => (
                       <div key={alert.id} className={styles.alertCard}>
                         <div className={styles.alertCardContent}>
-                          <div className={`${styles.alertBadgeIcon} ${
-                            alert.type === "Missed reminder" ? styles.iconRed : alert.type === "Concerning tone" ? styles.iconOrange : styles.iconPurple
-                          }`}>
+                          <div className={`${styles.alertBadgeIcon} ${alert.type === "Missed reminder" ? styles.iconRed : alert.type === "Concerning tone" ? styles.iconOrange : styles.iconPurple
+                            }`}>
                             {alert.type === "Missed reminder" ? "🚨" : alert.type === "Concerning tone" ? "🙁" : "📞"}
                           </div>
                           <div className={styles.alertText}>
@@ -850,9 +848,8 @@ export default function DashboardPage() {
                           <td>{log.type}</td>
                           <td>{log.duration}</td>
                           <td>
-                            <span className={`${styles.toneBadge} ${
-                              log.tone === "happy" ? styles.badgeHappy : log.tone === "sad" ? styles.badgeSad : log.tone === "confused" ? styles.badgeConfused : log.tone === "low energy" ? styles.badgeLowEnergy : styles.badgeNoAnswer
-                            }`}>
+                            <span className={`${styles.toneBadge} ${log.tone === "happy" ? styles.badgeHappy : log.tone === "sad" ? styles.badgeSad : log.tone === "confused" ? styles.badgeConfused : log.tone === "low energy" ? styles.badgeLowEnergy : styles.badgeNoAnswer
+                              }`}>
                               {log.tone}
                             </span>
                           </td>
@@ -934,9 +931,8 @@ export default function DashboardPage() {
                   .map((alert) => (
                     <div key={alert.id} className={styles.alertCard} style={{ opacity: alert.status === "Acknowledged" ? 0.7 : 1 }}>
                       <div className={styles.alertCardContent}>
-                        <div className={`${styles.alertBadgeIcon} ${
-                          alert.type === "Missed reminder" ? styles.iconRed : alert.type === "Concerning tone" ? styles.iconOrange : alert.type === "Missed call" ? styles.iconPurple : alert.type === "Confusion detected" ? styles.iconOrange : styles.iconGreen
-                        }`}>
+                        <div className={`${styles.alertBadgeIcon} ${alert.type === "Missed reminder" ? styles.iconRed : alert.type === "Concerning tone" ? styles.iconOrange : alert.type === "Missed call" ? styles.iconPurple : alert.type === "Confusion detected" ? styles.iconOrange : styles.iconGreen
+                          }`}>
                           {alert.type === "Missed reminder" ? "🚨" : alert.type === "Concerning tone" ? "🙁" : alert.type === "Missed call" ? "🔇" : alert.type === "Confusion detected" ? "❓" : "✓"}
                         </div>
                         <div className={styles.alertText}>
@@ -945,7 +941,7 @@ export default function DashboardPage() {
                           <span className={styles.alertMeta}>{alert.meta}</span>
                         </div>
                       </div>
-                      
+
                       {alert.status === "Unacknowledged" ? (
                         <button
                           onClick={() => handleAcknowledgeAlert(alert.id)}
@@ -1175,7 +1171,7 @@ export default function DashboardPage() {
               </h3>
               <button className={styles.closeBtn} onClick={() => setSelectedLogTranscript(null)}>×</button>
             </div>
-            
+
             <div style={{
               display: "flex",
               flexDirection: "column",
@@ -1195,8 +1191,8 @@ export default function DashboardPage() {
                     width: "28px",
                     height: "28px",
                     borderRadius: "50%",
-                     backgroundColor: msg.speaker === "ai" ? "#fffbeb" : "#ecfdf5",
-                     color: msg.speaker === "ai" ? "#d97706" : "#10b981",
+                    backgroundColor: msg.speaker === "ai" ? "#fffbeb" : "#ecfdf5",
+                    color: msg.speaker === "ai" ? "#d97706" : "#10b981",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
