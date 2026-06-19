@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Header from "@/components/Header";
-import { CinematicHero } from "@/components/ui/cinematic-landing-hero";
+import HeroPhoto from "@/components/HeroPhoto";
 import styles from "./page.module.css";
 
 // --- PROFESSIONAL SVG ICONS ---
@@ -119,8 +119,8 @@ export default function Home() {
       {/* Navigation Header */}
       <Header />
 
-      {/* Immersive Cinematic Hero Section */}
-      <CinematicHero />
+      {/* Photo Hero Section */}
+      <HeroPhoto />
 
       {/* Showcase Section (Replacing Giphy Gifs with Modern CSS illustrations) */}
       <section className={styles.showcaseSection}>
@@ -153,7 +153,7 @@ export default function Home() {
                   <span>Mom answered morning call: <strong>Healthy</strong></span>
                 </div>
                 <div className={styles.notifShowcaseItem}>
-                  <div className={styles.notifDot} style={{ backgroundColor: "#a78bfa" }} />
+                  <div className={styles.notifDot} style={{ backgroundColor: "#fbbf24" }} />
                   <span>Meds Compliance logged: <strong>100%</strong></span>
                 </div>
                 <div className={styles.notifShowcaseItem}>
@@ -184,7 +184,7 @@ export default function Home() {
                   </div>
                   <div className={styles.dashBlock}>
                     <span className={styles.dashLabel}>MEDS LOG</span>
-                    <span className={styles.dashValue} style={{ color: "#a78bfa" }}>98%</span>
+                    <span className={styles.dashValue} style={{ color: "#d97706" }}>98%</span>
                   </div>
                 </div>
               </div>
@@ -375,7 +375,7 @@ export default function Home() {
                 1 Family Member Access
               </div>
             </div>
-            <Link href="/dashboard" className={`${styles.btnPrice} ${styles.btnPriceGhost}`}>
+            <Link href="https://elder-ai-dashboard.vercel.app/" className={`${styles.btnPrice} ${styles.btnPriceGhost}`}>
               Choose Starter
             </Link>
           </div>
@@ -413,45 +413,8 @@ export default function Home() {
                 5 Family Members Access
               </div>
             </div>
-            <Link href="/dashboard" className={`${styles.btnPrice} ${styles.btnPriceFilled}`}>
+            <Link href="https://elder-ai-dashboard.vercel.app/" className={`${styles.btnPrice} ${styles.btnPriceFilled}`}>
               Choose Family
-            </Link>
-          </div>
-
-          {/* Professional */}
-          <div className={styles.priceCard}>
-            <div className={styles.priceName}>Healthcare</div>
-            <div className={styles.priceAmount}>
-              <span className={styles.priceDollar}>$</span>
-              <span className={styles.priceNum}>89</span>
-              <span className={styles.pricePeriod}>/mo</span>
-            </div>
-            <p className={styles.priceDesc}>Designed for care managers and senior networks.</p>
-            <div className={styles.priceDivider} />
-            <div className={styles.priceFeatures}>
-              <div className={styles.pfItem}>
-                <div className={styles.pfCheck}>✓</div>
-                Unlimited Daily Calls
-              </div>
-              <div className={styles.pfItem}>
-                <div className={styles.pfCheck}>✓</div>
-                Custom AI Voices & Prompts
-              </div>
-              <div className={styles.pfItem}>
-                <div className={styles.pfCheck}>✓</div>
-                Full API Integrations
-              </div>
-              <div className={styles.pfItem}>
-                <div className={styles.pfCheck}>✓</div>
-                Dedicated Support Manager
-              </div>
-              <div className={styles.pfItem}>
-                <div className={styles.pfCheck}>✓</div>
-                Unlimited Members Access
-              </div>
-            </div>
-            <Link href="/dashboard" className={`${styles.btnPrice} ${styles.btnPriceGhost}`}>
-              Choose Healthcare
             </Link>
           </div>
         </div>
@@ -466,11 +429,11 @@ export default function Home() {
                 width: "28px",
                 height: "28px",
                 borderRadius: "6px",
-                backgroundColor: "#113f26",
+                backgroundColor: "#451a03",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "#4ade80",
+                color: "#fbbf24",
                 padding: "4px"
               }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
