@@ -143,7 +143,7 @@ export default function ConsoleWidget() {
             {currentData.dialogue.map((msg, index) => (
               <div key={index} style={{ marginBottom: "8px", fontSize: "14px" }}>
                 {msg.speaker === "ai" && (
-                  <span style={{ color: "#a78bfa", fontWeight: 700, marginRight: "6px" }}>AI:</span>
+                  <span style={{ color: "#fbbf24", fontWeight: 700, marginRight: "6px" }}>AI:</span>
                 )}
                 {msg.speaker === "user" && (
                   <span style={{ color: "#22d3ee", fontWeight: 700, marginRight: "6px" }}>User:</span>

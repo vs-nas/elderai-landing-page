@@ -9,8 +9,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Vapi | Speak human to every customer",
-  description: "Build and deploy voice agents that deliver the outcomes you want at the scale your customers need.",
+  title: "ElderAI | Smart elder care monitoring and companionship",
+  description: "Ensure safety, well-being, and companionship for your loved ones with proactive, personalized AI monitoring.",
 };
 
 export default function RootLayout({

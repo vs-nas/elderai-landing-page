@@ -9,8 +9,8 @@
   --secondary-foreground: #fafafa;
   --muted: #27272a;
   --muted-foreground: #a1a1aa;
-  --accent: #22c55e;
-  --accent-hover: #16a34a;
+  --accent: #f59e0b;
+  --accent-hover: #d97706;
   --border: #27272a;
   --radius: 0.75rem;
   
@@ -21,6 +21,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -71,10 +75,10 @@ a {
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
   }
   50% {
-    box-shadow: 0 0 16px 8px rgba(34, 197, 94, 0.2);
+    box-shadow: 0 0 16px 8px rgba(245, 158, 11, 0.2);
   }
 }
 

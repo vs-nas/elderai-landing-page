@@ -13,7 +13,7 @@
 /* Sidebar Styling */
 .sidebar {
   width: 260px;
-  background-color: #113f26; /* Deep forest green */
+  background-color: #451a03; /* Deep warm amber */
   color: #e2e8f0;
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #4ade80;
+  color: #fbbf24;
 }
 
 .sidebarMenu {
@@ -258,8 +258,8 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #113f26;
-  color: #4ade80;
+  background-color: #451a03;
+  color: #fbbf24;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -321,7 +321,7 @@
   gap: 4px;
 }
 
-.trendUp { color: #16a34a; }
+.trendUp { color: #d97706; }
 .trendDown { color: #f97316; }
 
 .statIcon {
@@ -336,7 +336,7 @@
 .iconPhone { background-color: #ecfdf5; color: #059669; }
 .iconCheck { background-color: #ecfdf5; color: #059669; }
 .iconCaution { background-color: #fff7ed; color: #d97706; }
-.iconMood { background-color: #f5f3ff; color: #7c3aed; }
+.iconMood { background-color: #fffbeb; color: #d97706; }
 
 /* Dashboard Columns Layout */
 .dashboardColumns {
@@ -441,7 +441,7 @@
 .badgeHappy { background-color: #ecfdf5; color: #059669; }
 .badgeSad { background-color: #fef2f2; color: #dc2626; }
 .badgeConfused { background-color: #fff7ed; color: #d97706; }
-.badgeLowEnergy { background-color: #faf5ff; color: #7c3aed; }
+.badgeLowEnergy { background-color: #fffbeb; color: #d97706; }
 .badgeNoAnswer { background-color: #f1f5f9; color: #475569; }
 
 /* Weekly Mood Charts */
@@ -641,7 +641,7 @@
 }
 
 .addBtn {
-  background-color: #113f26; /* Forest green */
+  background-color: #451a03; /* Deep warm amber */
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -653,11 +653,11 @@
   align-items: center;
   gap: 8px;
   transition: background-color 0.2s;
-  box-shadow: 0 4px 12px rgba(17, 63, 38, 0.25);
+  box-shadow: 0 4px 12px rgba(69, 26, 3, 0.25);
 }
 
 .addBtn:hover {
-  background-color: #164f30;
+  background-color: #5c2404;
 }
 
 .lovedOnesGrid {
@@ -844,7 +844,7 @@
 }
 
 .outcomeCompleted {
-  color: #16a34a;
+  color: #d97706;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -965,8 +965,8 @@
 .formInput:focus,
 .formSelect:focus,
 .formTextarea:focus {
-  border-color: #113f26;
-  box-shadow: 0 0 0 3px rgba(17, 63, 38, 0.1);
+  border-color: #451a03;
+  box-shadow: 0 0 0 3px rgba(69, 26, 3, 0.1);
 }
 
 .formTextarea {
@@ -999,7 +999,7 @@
 }
 
 .saveBtn {
-  background-color: #113f26;
+  background-color: #451a03;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -1010,7 +1010,7 @@
 }
 
 .saveBtn:hover {
-  background-color: #164f30;
+  background-color: #5c2404;
 }
 
 /* Schedules View Details */
@@ -1053,7 +1053,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #113f26;
+  color: #451a03;
   font-size: 16px;
 }
 

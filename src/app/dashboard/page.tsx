@@ -538,8 +538,8 @@ export default function DashboardPage() {
                       <div key={log.id} className={styles.callRow}>
                         <div className={styles.callProfile}>
                           <div className={styles.callToneIcon} style={{
-                            backgroundColor: log.tone === "happy" ? "#ecfdf5" : log.tone === "sad" ? "#fef2f2" : log.tone === "confused" ? "#fff7ed" : log.tone === "low energy" ? "#faf5ff" : "#f1f5f9",
-                            color: log.tone === "happy" ? "#059669" : log.tone === "sad" ? "#dc2626" : log.tone === "confused" ? "#d97706" : log.tone === "low energy" ? "#7c3aed" : "#475569"
+                             backgroundColor: log.tone === "happy" ? "#ecfdf5" : log.tone === "sad" ? "#fef2f2" : log.tone === "confused" ? "#fff7ed" : log.tone === "low energy" ? "#fffbeb" : "#f1f5f9",
+                             color: log.tone === "happy" ? "#059669" : log.tone === "sad" ? "#dc2626" : log.tone === "confused" ? "#d97706" : log.tone === "low energy" ? "#d97706" : "#475569"
                           }}>
                             {log.tone === "happy" ? "😊" : log.tone === "sad" ? "🙁" : log.tone === "confused" ? "😕" : log.tone === "low energy" ? "🥱" : "🔇"}
                           </div>
@@ -917,7 +917,7 @@ export default function DashboardPage() {
                   <button
                     onClick={handleAcknowledgeAllAlerts}
                     className={styles.addBtn}
-                    style={{ backgroundColor: "transparent", border: "1.5px solid #113f26", color: "#113f26", boxShadow: "none" }}
+                    style={{ backgroundColor: "transparent", border: "1.5px solid #451a03", color: "#451a03", boxShadow: "none" }}
                   >
                     ✓ Acknowledge all
                   </button>
@@ -1195,8 +1195,8 @@ export default function DashboardPage() {
                     width: "28px",
                     height: "28px",
                     borderRadius: "50%",
-                    backgroundColor: msg.speaker === "ai" ? "#f5f3ff" : "#ecfdf5",
-                    color: msg.speaker === "ai" ? "#7c3aed" : "#10b981",
+                     backgroundColor: msg.speaker === "ai" ? "#fffbeb" : "#ecfdf5",
+                     color: msg.speaker === "ai" ? "#d97706" : "#10b981",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
