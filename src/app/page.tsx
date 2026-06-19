@@ -479,7 +479,7 @@ export default function Home() {
                 1 Family Member Access
               </div>
             </div>
-            <Link href="https://elder-ai-dashboard.vercel.app/" className={`${styles.btnPrice} ${styles.btnPriceGhost}`}>
+            <Link href="https://elder-ai-dashboard.vercel.app/signup?plan=starter" className={`${styles.btnPrice} ${styles.btnPriceGhost}`}>
               Choose Starter
             </Link>
           </div>
@@ -517,7 +517,7 @@ export default function Home() {
                 5 Family Members Access
               </div>
             </div>
-            <Link href="https://elder-ai-dashboard.vercel.app/" className={`${styles.btnPrice} ${styles.btnPriceFilled}`}>
+            <Link href="https://elder-ai-dashboard.vercel.app/signup?plan=family" className={`${styles.btnPrice} ${styles.btnPriceFilled}`}>
               Choose Family
             </Link>
           </div>
