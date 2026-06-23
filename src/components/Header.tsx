@@ -66,7 +66,6 @@ export default function Header() {
       <nav className={styles.nav}>
         <a href="#how" onClick={(e) => handleNavClick(e, "how")} className={styles.navLink}>How it works</a>
         <a href="#features" onClick={(e) => handleNavClick(e, "features")} className={styles.navLink}>Features</a>
-        <a href="#analytics" onClick={(e) => handleNavClick(e, "analytics")} className={styles.navLink}>Analytics</a>
         <a href="#pricing" onClick={(e) => handleNavClick(e, "pricing")} className={styles.navLink}>Pricing</a>
       </nav>
 
