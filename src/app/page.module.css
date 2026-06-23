@@ -33,7 +33,7 @@
 }
 
 .headerScrolled {
-  background-color: rgba(255, 255, 255, 0.72);
+  background-color: rgba(255, 255, 255, 0.93);
   backdrop-filter: blur(36px) saturate(200%);
   -webkit-backdrop-filter: blur(36px) saturate(200%);
   border-bottom: 1px solid rgba(15, 23, 42, 0.08);
@@ -164,7 +164,7 @@
 }
 
 .headlineGradient {
-  background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #fbbf24 100%);
+  background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #06b6d4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -317,7 +317,7 @@
 
 .waveform span {
   flex: 1;
-  background: linear-gradient(180deg, #d97706, #fbbf24);
+  background: linear-gradient(180deg, #3b82f6, #06b6d4);
   border-radius: 20px;
 }
 
@@ -421,13 +421,13 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: radial-gradient(circle, #d97706, #b45309);
+  background: radial-gradient(circle, #06b6d4, #3b82f6);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   z-index: 5;
-  box-shadow: 0 0 32px rgba(217, 119, 6, 0.4);
+  box-shadow: 0 0 32px rgba(6, 182, 212, 0.4);
 }
 
 .pulseRing1,
@@ -435,7 +435,7 @@
 .pulseRing3 {
   position: absolute;
   border-radius: 50%;
-  border: 1.5px solid rgba(217, 119, 6, 0.4);
+  border: 1.5px solid rgba(6, 182, 212, 0.4);
   inset: -10px;
   animation: visualRingPulse 2.5s infinite ease-out;
 }
@@ -692,7 +692,7 @@
   font-size: 36px;
   font-weight: 800;
   letter-spacing: -1px;
-  color: #b45309;
+  color: #3b82f6;
 }
 
 .trustStatLabel {
@@ -755,7 +755,7 @@
 }
 
 .marqueeLogo:hover {
-  color: #d97706;
+  color: #3b82f6;
   transform: translateY(-1px);
 }
 
@@ -796,15 +796,14 @@
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: #d97706;
+  color: #06b6d4;
   margin-bottom: 20px;
 }
 
 .eyebrowLine {
-  width: 32px;
-  height: 1px;
-  background-color: #d97706;
-  opacity: 0.4;
+  width: 24px;
+  height: 2px;
+  background-color: #06b6d4;
 }
 
 .sectionTitle {
@@ -854,14 +853,14 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #d97706, #fbbf24);
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .stepCard:hover {
   transform: translateY(-8px);
-  border-color: rgba(217, 119, 6, 0.2);
+  border-color: rgba(59, 130, 246, 0.2);
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
 }
 
@@ -884,13 +883,13 @@
 }
 
 .stepCard:hover .stepCardNumberWatermark {
-  color: rgba(217, 119, 6, 0.06);
+  color: rgba(59, 130, 246, 0.06);
   transform: scale(1.08) translateY(-2px);
 }
 
 .stepBadge {
-  background: rgba(217, 119, 6, 0.08);
-  color: #d97706;
+  background: rgba(6, 182, 212, 0.08);
+  color: #06b6d4;
   padding: 4px 10px;
   border-radius: 100px;
   font-size: 11px;
@@ -917,10 +916,10 @@
 }
 
 .stepCard:hover .stepNum {
-  background: #d97706;
+  background: #3b82f6;
   color: #ffffff;
-  border-color: #d97706;
-  box-shadow: 0 8px 20px rgba(217, 119, 6, 0.25);
+  border-color: #3b82f6;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
   transform: translateY(-2px) scale(1.05);
 }
 
@@ -998,8 +997,8 @@
   align-items: center;
   justify-content: center;
   background: #ffffff;
-  border: 1px solid rgba(245, 158, 11, 0.15);
-  color: #f59e0b;
+  border: 1px solid rgba(6, 182, 212, 0.15);
+  color: #06b6d4;
   flex-shrink: 0;
 }
 
@@ -1110,8 +1109,8 @@
 .dashMockupLink {
   font-size: 11px;
   font-weight: 600;
-  color: #d97706;
-  background: #fffbeb;
+  color: #06b6d4;
+  background: #ecfeff;
   padding: 4px 12px;
   border-radius: 100px;
   cursor: pointer;
@@ -1119,7 +1118,7 @@
 }
 
 .dashMockupLink:hover {
-  background: #fef3c7;
+  background: #cffafe;
 }
 
 .dashTimelineList {
@@ -1380,16 +1379,16 @@
 
 .featCard:hover {
   transform: translateY(-6px);
-  border-color: rgba(217, 119, 6, 0.2);
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(217, 119, 6, 0.04);
+  border-color: rgba(59, 130, 246, 0.2);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(59, 130, 246, 0.04);
 }
 
 .featCard:hover .featIcon {
-  background: #d97706;
+  background: #3b82f6;
   color: #ffffff;
-  border-color: #d97706;
+  border-color: #3b82f6;
   transform: scale(1.08) translateY(-2px) rotate(4deg);
-  box-shadow: 0 8px 20px rgba(217, 119, 6, 0.25);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
 }
 
 .featIcon {
@@ -1401,9 +1400,9 @@
   justify-content: center;
   font-size: 22px;
   margin-bottom: 20px;
-  background: #fffbeb;
-  border: 1px solid rgba(217, 119, 6, 0.15);
-  color: #d97706;
+  background: #ecfeff;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
 }
 
 .featTitle {
@@ -1453,16 +1452,16 @@
 }
 
 .priceCardFeatured {
-  border-color: rgba(217, 119, 6, 0.35);
-  background: linear-gradient(160deg, rgba(217, 119, 6, 0.04) 0%, rgba(255, 251, 235, 0.8) 100%);
-  box-shadow: 0 0 50px rgba(217, 119, 6, 0.06);
+  border-color: rgba(6, 182, 212, 0.35);
+  background: linear-gradient(160deg, rgba(6, 182, 212, 0.04) 0%, rgba(236, 254, 255, 0.8) 100%);
+  box-shadow: 0 0 50px rgba(6, 182, 212, 0.06);
 }
 
 .priceBadge {
   position: absolute;
   top: 20px;
   right: 20px;
-  background: linear-gradient(135deg, #d97706, #b45309);
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
   color: #ffffff;
   font-size: 11px;
   font-weight: 700;
@@ -1578,13 +1577,13 @@
 }
 
 .btnPriceFilled {
-  background: linear-gradient(135deg, #d97706, #b45309);
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
   color: #ffffff;
 }
 
 .btnPriceFilled:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(217, 119, 6, 0.25);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
 }
 
 /* Footer Section */

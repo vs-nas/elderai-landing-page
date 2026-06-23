@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/Header";
 import HeroPhoto from "@/components/HeroPhoto";
 import { FloatingPaths } from "@/components/ui/background-paths";
@@ -204,13 +205,13 @@ export default function Home() {
 
                   {/* 3. Item B (Item 2) */}
                   <div className={styles.notifShowcaseItem}>
-                    <div className={styles.widgetIconWrap} style={{ width: "24px", height: "24px", minWidth: "24px", backgroundColor: "rgba(245, 158, 11, 0.08)", borderColor: "rgba(245, 158, 11, 0.15)", color: "#f59e0b" }}>
+                    <div className={styles.widgetIconWrap} style={{ width: "24px", height: "24px", minWidth: "24px", backgroundColor: "rgba(6, 182, 212, 0.08)", borderColor: "rgba(6, 182, 212, 0.15)", color: "#06b6d4" }}>
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" />
                         <path d="m8.5 8.5 7 7" />
                       </svg>
                     </div>
-                    <span>Meds Compliance logged: <strong style={{ color: "#d97706" }}>100%</strong></span>
+                    <span>Meds Compliance logged: <strong style={{ color: "#3b82f6" }}>100%</strong></span>
                   </div>
 
                   {/* 4. Item C (Item 3) */}
@@ -238,13 +239,13 @@ export default function Home() {
 
                   {/* 6. Item B (duplicate) */}
                   <div className={styles.notifShowcaseItem}>
-                    <div className={styles.widgetIconWrap} style={{ width: "24px", height: "24px", minWidth: "24px", backgroundColor: "rgba(245, 158, 11, 0.08)", borderColor: "rgba(245, 158, 11, 0.15)", color: "#f59e0b" }}>
+                    <div className={styles.widgetIconWrap} style={{ width: "24px", height: "24px", minWidth: "24px", backgroundColor: "rgba(6, 182, 212, 0.08)", borderColor: "rgba(6, 182, 212, 0.15)", color: "#06b6d4" }}>
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" />
                         <path d="m8.5 8.5 7 7" />
                       </svg>
                     </div>
-                    <span>Meds Compliance logged: <strong style={{ color: "#d97706" }}>100%</strong></span>
+                    <span>Meds Compliance logged: <strong style={{ color: "#3b82f6" }}>100%</strong></span>
                   </div>
                 </div>
               </div>
@@ -268,8 +269,8 @@ export default function Home() {
                 <div className={styles.dashboardVisualGrid}>
                   <div className={styles.dashBlock}>
                     <span className={styles.dashLabel}>WELLNESS</span>
-                    <span className={styles.dashValue} style={{ color: "#b45309" }}>94%</span>
-                    <div className={styles.dashUnderline} style={{ backgroundColor: "#b45309" }} />
+                    <span className={styles.dashValue} style={{ color: "#3b82f6" }}>94%</span>
+                    <div className={styles.dashUnderline} style={{ backgroundColor: "#3b82f6" }} />
                   </div>
                   <div className={styles.dashBlock}>
                     <span className={styles.dashLabel}>MEDS LOG</span>
@@ -278,11 +279,11 @@ export default function Home() {
                   </div>
                 </div>
                 <div className={styles.dashChart}>
-                  <div className={styles.dashBar} style={{ height: "20px", backgroundColor: "#fef3c7" }} />
-                  <div className={styles.dashBar} style={{ height: "32px", backgroundColor: "#fef3c7" }} />
-                  <div className={styles.dashBar} style={{ height: "24px", backgroundColor: "#fef3c7" }} />
-                  <div className={styles.dashBar} style={{ height: "48px", backgroundColor: "#d97706" }} />
-                  <div className={styles.dashBar} style={{ height: "60px", backgroundColor: "#b45309" }} />
+                  <div className={styles.dashBar} style={{ height: "20px", backgroundColor: "#e0f2fe" }} />
+                  <div className={styles.dashBar} style={{ height: "32px", backgroundColor: "#e0f2fe" }} />
+                  <div className={styles.dashBar} style={{ height: "24px", backgroundColor: "#e0f2fe" }} />
+                  <div className={styles.dashBar} style={{ height: "48px", backgroundColor: "#3b82f6" }} />
+                  <div className={styles.dashBar} style={{ height: "60px", backgroundColor: "#1d4ed8" }} />
                 </div>
               </div>
             </div>
@@ -554,13 +555,14 @@ export default function Home() {
                     <div className={`${styles.dashAlertDesc} ${alertAcknowledged ? styles.dashAlertDescGreen : ''}`}>
                       {alertAcknowledged ? "Family contacts notified. Rescheduling call for 1:00 PM." : "Eleanor did not answer the 12:00 PM lunch reminder. This is her 2nd missed call today."}
                     </div>
+                    <button
+                      onClick={() => setAlertAcknowledged(true)}
+                      className={alertAcknowledged ? styles.dashAlertAcknowledgeBtnGreen : styles.dashAlertAcknowledgeBtn}
+                      style={{ marginTop: "10px", width: "fit-content" }}
+                    >
+                      {alertAcknowledged ? "Acknowledged ✓" : "Acknowledge"}
+                    </button>
                   </div>
-                  <button
-                    onClick={() => setAlertAcknowledged(true)}
-                    className={alertAcknowledged ? styles.dashAlertAcknowledgeBtnGreen : styles.dashAlertAcknowledgeBtn}
-                  >
-                    {alertAcknowledged ? "Acknowledged ✓" : "Acknowledge"}
-                  </button>
                 </div>
               </div>
             </div>
@@ -717,22 +719,13 @@ export default function Home() {
         <div className={styles.footerInner}>
           <div className={styles.footerBrand}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              {/* <div style={{
-                width: "28px",
-                height: "28px",
-                borderRadius: "6px",
-                backgroundColor: "#451a03",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#fbbf24",
-                padding: "4px"
-              }}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8a7 7 0 0 1-9 8.2z" />
-                </svg>
-              </div> */}
-              <span style={{ fontSize: "18px", fontWeight: 800, color: "#0f172a" }}>ElderAI</span>
+              <Image
+                src="/logo.png"
+                alt="ElderAI Logo"
+                width={130}
+                height={32}
+                style={{ objectFit: "contain", height: "32px", width: "auto", filter: "grayscale(100%) brightness(0.7)", opacity: 0.8 }}
+              />
             </div>
             <p style={{ marginTop: "12px" }}>
               ElderAI — AI-powered wellness calls that remind, care, and keep families informed. Stay connected with elderly loved ones through intelligent voice calls.

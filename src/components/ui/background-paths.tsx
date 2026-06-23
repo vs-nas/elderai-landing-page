@@ -13,7 +13,7 @@ export function FloatingPaths({ position, className }: { position: number; class
         } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
             684 - i * 5 * position
         } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-        color: i % 2 === 0 ? "#f59e0b" : "#d97706",
+        color: i % 2 === 0 ? "#06b6d4" : "#3b82f6",
         width: 0.5 + i * 0.03,
     }));
 
