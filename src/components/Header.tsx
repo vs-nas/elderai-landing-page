@@ -13,7 +13,7 @@ const ElderAILogo = () => (
       width={130}
       height={32}
       priority
-      style={{ objectFit: "contain", height: "32px", width: "auto" }}
+      style={{ objectFit: "contain", height: "38px", width: "auto" }}
     />
   </div>
 );
@@ -49,9 +49,17 @@ export default function Header() {
     }
   };
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
   return (
     <header className={`${styles.header} ${scrolled ? styles.headerScrolled : ""}`}>
-      <Link href="/">
+      <Link href="/" onClick={handleLogoClick}>
         <ElderAILogo />
       </Link>
 
