@@ -1,6 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/Header";
 import HeroPhoto from "@/components/HeroPhoto";
 import { FloatingPaths } from "@/components/ui/background-paths";
@@ -124,6 +126,18 @@ const LogoAtom = () => (
 );
 
 export default function Home() {
+  const [expandedCallId, setExpandedCallId] = useState<number | null>(null);
+  const [alertAcknowledged, setAlertAcknowledged] = useState(false);
+  const [currentYear, setCurrentYear] = useState(2026);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
+  const toggleCallExpand = (id: number) => {
+    setExpandedCallId(prev => prev === id ? null : id);
+  };
+
   return (
     <main className={styles.container}>
       {/* Navigation Header */}
@@ -164,34 +178,75 @@ export default function Home() {
           {/* Card 2: Interactive Floating Notifications list */}
           <div className={styles.gifCard}>
             <div className={styles.illustrationContainer}>
-              <div className={styles.notifShowcaseList}>
-                <div className={styles.notifShowcaseItem}>
-                  <div className={styles.widgetIconWrap} style={{ width: "24px", height: "24px", minWidth: "24px", backgroundColor: "rgba(34, 197, 94, 0.08)", borderColor: "rgba(34, 197, 94, 0.15)", color: "#22c55e" }}>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
+              <div className={styles.notifShowcaseViewport}>
+                <div className={styles.notifShowcaseList}>
+                  {/* 1. Item C (duplicate) */}
+                  <div className={styles.notifShowcaseItem}>
+                    <div className={styles.widgetIconWrap} style={{ width: "24px", height: "24px", minWidth: "24px", backgroundColor: "rgba(148, 163, 184, 0.08)", borderColor: "rgba(148, 163, 184, 0.15)", color: "#64748b" }}>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                      </svg>
+                    </div>
+                    <span>Weekly Wellness Report ready</span>
                   </div>
-                  <span>Mom answered morning call: <strong style={{ color: "#22c55e" }}>Healthy</strong></span>
-                </div>
-                <div className={styles.notifShowcaseItem}>
-                  <div className={styles.widgetIconWrap} style={{ width: "24px", height: "24px", minWidth: "24px", backgroundColor: "rgba(245, 158, 11, 0.08)", borderColor: "rgba(245, 158, 11, 0.15)", color: "#f59e0b" }}>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" />
-                      <path d="m8.5 8.5 7 7" />
-                    </svg>
+
+                  {/* 2. Item A (Item 1) */}
+                  <div className={styles.notifShowcaseItem}>
+                    <div className={styles.widgetIconWrap} style={{ width: "24px", height: "24px", minWidth: "24px", backgroundColor: "rgba(34, 197, 94, 0.08)", borderColor: "rgba(34, 197, 94, 0.15)", color: "#22c55e" }}>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    </div>
+                    <span>Mom answered morning call: <strong style={{ color: "#22c55e" }}>Healthy</strong></span>
                   </div>
-                  <span>Meds Compliance logged: <strong style={{ color: "#d97706" }}>100%</strong></span>
-                </div>
-                <div className={styles.notifShowcaseItem}>
-                  <div className={styles.widgetIconWrap} style={{ width: "24px", height: "24px", minWidth: "24px", backgroundColor: "rgba(148, 163, 184, 0.08)", borderColor: "rgba(148, 163, 184, 0.15)", color: "#64748b" }}>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                      <polyline points="14 2 14 8 20 8" />
-                      <line x1="16" y1="13" x2="8" y2="13" />
-                      <line x1="16" y1="17" x2="8" y2="17" />
-                    </svg>
+
+                  {/* 3. Item B (Item 2) */}
+                  <div className={styles.notifShowcaseItem}>
+                    <div className={styles.widgetIconWrap} style={{ width: "24px", height: "24px", minWidth: "24px", backgroundColor: "rgba(6, 182, 212, 0.08)", borderColor: "rgba(6, 182, 212, 0.15)", color: "#06b6d4" }}>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" />
+                        <path d="m8.5 8.5 7 7" />
+                      </svg>
+                    </div>
+                    <span>Meds Compliance logged: <strong style={{ color: "#3b82f6" }}>100%</strong></span>
                   </div>
-                  <span>Weekly Wellness Report ready</span>
+
+                  {/* 4. Item C (Item 3) */}
+                  <div className={styles.notifShowcaseItem}>
+                    <div className={styles.widgetIconWrap} style={{ width: "24px", height: "24px", minWidth: "24px", backgroundColor: "rgba(148, 163, 184, 0.08)", borderColor: "rgba(148, 163, 184, 0.15)", color: "#64748b" }}>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                      </svg>
+                    </div>
+                    <span>Weekly Wellness Report ready</span>
+                  </div>
+
+                  {/* 5. Item A (duplicate) */}
+                  <div className={styles.notifShowcaseItem}>
+                    <div className={styles.widgetIconWrap} style={{ width: "24px", height: "24px", minWidth: "24px", backgroundColor: "rgba(34, 197, 94, 0.08)", borderColor: "rgba(34, 197, 94, 0.15)", color: "#22c55e" }}>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    </div>
+                    <span>Mom answered morning call: <strong style={{ color: "#22c55e" }}>Healthy</strong></span>
+                  </div>
+
+                  {/* 6. Item B (duplicate) */}
+                  <div className={styles.notifShowcaseItem}>
+                    <div className={styles.widgetIconWrap} style={{ width: "24px", height: "24px", minWidth: "24px", backgroundColor: "rgba(6, 182, 212, 0.08)", borderColor: "rgba(6, 182, 212, 0.15)", color: "#06b6d4" }}>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" />
+                        <path d="m8.5 8.5 7 7" />
+                      </svg>
+                    </div>
+                    <span>Meds Compliance logged: <strong style={{ color: "#3b82f6" }}>100%</strong></span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -214,8 +269,8 @@ export default function Home() {
                 <div className={styles.dashboardVisualGrid}>
                   <div className={styles.dashBlock}>
                     <span className={styles.dashLabel}>WELLNESS</span>
-                    <span className={styles.dashValue} style={{ color: "#b45309" }}>94%</span>
-                    <div className={styles.dashUnderline} style={{ backgroundColor: "#b45309" }} />
+                    <span className={styles.dashValue} style={{ color: "#3b82f6" }}>94%</span>
+                    <div className={styles.dashUnderline} style={{ backgroundColor: "#3b82f6" }} />
                   </div>
                   <div className={styles.dashBlock}>
                     <span className={styles.dashLabel}>MEDS LOG</span>
@@ -224,11 +279,11 @@ export default function Home() {
                   </div>
                 </div>
                 <div className={styles.dashChart}>
-                  <div className={styles.dashBar} style={{ height: "20px", backgroundColor: "#fef3c7" }} />
-                  <div className={styles.dashBar} style={{ height: "32px", backgroundColor: "#fef3c7" }} />
-                  <div className={styles.dashBar} style={{ height: "24px", backgroundColor: "#fef3c7" }} />
-                  <div className={styles.dashBar} style={{ height: "48px", backgroundColor: "#d97706" }} />
-                  <div className={styles.dashBar} style={{ height: "60px", backgroundColor: "#b45309" }} />
+                  <div className={styles.dashBar} style={{ height: "20px", backgroundColor: "#e0f2fe" }} />
+                  <div className={styles.dashBar} style={{ height: "32px", backgroundColor: "#e0f2fe" }} />
+                  <div className={styles.dashBar} style={{ height: "24px", backgroundColor: "#e0f2fe" }} />
+                  <div className={styles.dashBar} style={{ height: "48px", backgroundColor: "#3b82f6" }} />
+                  <div className={styles.dashBar} style={{ height: "60px", backgroundColor: "#1d4ed8" }} />
                 </div>
               </div>
             </div>
@@ -265,7 +320,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={styles.trustLogosContainer}>
+        {/* <div className={styles.trustLogosContainer}>
           <div className={styles.marqueeLabel}>Trusted by families across healthcare networks</div>
 
           <div className={styles.marqueeWrap}>
@@ -278,7 +333,6 @@ export default function Home() {
               <div className={styles.marqueeLogo}><LogoHospital /> CarePoint Health</div>
               <div className={styles.marqueeLogo}><LogoAtom /> HomeComfort AI</div>
               <div className={styles.marqueeLogo}><LogoLeaf /> ElderGuard</div>
-              {/* Duplicate track for seamless loop */}
               <div className={styles.marqueeLogo}><LogoHospital /> MedCare Network</div>
               <div className={styles.marqueeLogo}><LogoHeart /> SeniorLiving Co</div>
               <div className={styles.marqueeLogo}><LogoLeaf /> WellnessFirst</div>
@@ -289,7 +343,7 @@ export default function Home() {
               <div className={styles.marqueeLogo}><LogoLeaf /> ElderGuard</div>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* How It Works Section */}
@@ -306,32 +360,35 @@ export default function Home() {
 
         <div className={styles.stepsRow}>
           <div className={styles.stepCard}>
-            <span className={styles.stepBadge}>01</span>
+            <div className={styles.stepCardNumberWatermark}>01</div>
+            <span className={styles.stepBadge}>Step 01</span>
             <div className={styles.stepNum}><IconUserAdd /></div>
             <div className={styles.stepTitle}>Add Loved Ones</div>
             <div className={styles.stepDesc}>Enter their phone number, name, and any health notes. Takes under two minutes.</div>
           </div>
           <div className={styles.stepCard}>
-            <span className={styles.stepBadge}>02</span>
+            <div className={styles.stepCardNumberWatermark}>02</div>
+            <span className={styles.stepBadge}>Step 02</span>
             <div className={styles.stepNum}><IconCalendar /></div>
             <div className={styles.stepTitle}>Schedule Reminders</div>
             <div className={styles.stepDesc}>Set medication times, wellness check-ins, and appointment reminders on your schedule.</div>
           </div>
           <div className={styles.stepCard}>
-            <span className={styles.stepBadge}>03</span>
+            <div className={styles.stepCardNumberWatermark}>03</div>
+            <span className={styles.stepBadge}>Step 03</span>
             <div className={styles.stepNum}><IconPhone /></div>
             <div className={styles.stepTitle}>AI Makes Calls</div>
             <div className={styles.stepDesc}>ElderAI&apos;s voice agents place natural phone check-ins exactly when scheduled — no apps needed.</div>
           </div>
           <div className={styles.stepCard}>
-            <span className={styles.stepBadge}>04</span>
+            <div className={styles.stepCardNumberWatermark}>04</div>
+            <span className={styles.stepBadge}>Step 04</span>
             <div className={styles.stepNum}><IconLineChart /></div>
             <div className={styles.stepTitle}>Receive Insights</div>
             <div className={styles.stepDesc}>Get reports on mood, wellness trends, and medication adherence delivered to your dashboard.</div>
           </div>
         </div>
 
-        {/* New Side-by-Side Callout Block */}
         <div className={styles.calloutCard}>
           {/* Section Background Paths */}
           <div className="absolute inset-0 overflow-hidden rounded-[32px] pointer-events-none z-0">
@@ -347,10 +404,8 @@ export default function Home() {
             <p className={styles.calloutDesc}>
               Our AI understands context and emotion, adapting its tone to provide genuine comfort and clear guidance.
             </p>
-          </div>
 
-          <div className={styles.calloutRight} style={{ zIndex: 1 }}>
-            <div className={styles.calloutWidgetList} style={{ marginTop: 0, width: "100%" }}>
+            <div className={styles.calloutWidgetList}>
               <div className={styles.widgetItem}>
                 <div className={styles.widgetIconWrap}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -377,6 +432,137 @@ export default function Home() {
                 <div className={styles.widgetText}>
                   <div className={styles.widgetTitle}>Medication Reminder</div>
                   <div className={styles.widgetSub}>Next scheduled check-in: 4:00 PM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.calloutRight} style={{ zIndex: 1 }}>
+            <div className={styles.dashMockupCard}>
+              <div className={styles.dashMockupHeader}>
+                <h4 className={styles.dashMockupTitle}>Recent Calls</h4>
+                <span className={styles.dashMockupLink}>View all →</span>
+              </div>              <div className={styles.dashTimelineList}>
+                {/* Call 1 */}
+                <div className={styles.dashTimelineItem} onClick={() => toggleCallExpand(1)}>
+                  <div className={styles.dashTimelineHeaderRow}>
+                    <div className={`${styles.dashTimelineIcon} ${styles.dashIconHappy}`}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                        <line x1="9" y1="9" x2="9.01" y2="9" />
+                        <line x1="15" y1="9" x2="15.01" y2="9" />
+                      </svg>
+                    </div>
+                    <div className={styles.dashTimelineContent}>
+                      <div className={styles.dashTimelineTitleRow}>
+                        <span className={styles.dashTimelineTitle}>Morning medication</span>
+                        <span className={`${styles.dashBadge} ${styles.dashBadgeGreen}`}>Happy</span>
+                      </div>
+                      <span className={styles.dashTimelineMeta}>Eleanor • Today 9:02 AM • 3m 14s</span>
+                    </div>
+                  </div>
+                  {expandedCallId === 1 && (
+                    <div className={styles.dashTimelineExpandedContent} onClick={(e) => e.stopPropagation()}>
+                      <p style={{ margin: 0, fontStyle: "italic" }}>
+                        <strong>AI:</strong> &quot;Hi Eleanor! Hope you&apos;re having a great morning. Have you taken your morning blood pressure medication?&quot;
+                      </p>
+                      <p style={{ margin: "4px 0 0 0", fontStyle: "italic" }}>
+                        <strong>Eleanor:</strong> &quot;Hello! Yes, dear, I just took it with my glass of water after breakfast.&quot;
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Call 2 */}
+                <div className={styles.dashTimelineItem} onClick={() => toggleCallExpand(2)}>
+                  <div className={styles.dashTimelineHeaderRow}>
+                    <div className={`${styles.dashTimelineIcon} ${styles.dashIconSad}`}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M16 16s-1.5-2-4-2-4 2-4 2" />
+                        <line x1="9" y1="9" x2="9.01" y2="9" />
+                        <line x1="15" y1="9" x2="15.01" y2="9" />
+                      </svg>
+                    </div>
+                    <div className={styles.dashTimelineContent}>
+                      <div className={styles.dashTimelineTitleRow}>
+                        <span className={styles.dashTimelineTitle}>Evening check-in</span>
+                        <span className={`${styles.dashBadge} ${styles.dashBadgeRed}`}>Sad</span>
+                      </div>
+                      <span className={styles.dashTimelineMeta}>Robert • Today 7:00 PM • 2m 48s</span>
+                    </div>
+                  </div>
+                  {expandedCallId === 2 && (
+                    <div className={styles.dashTimelineExpandedContent} onClick={(e) => e.stopPropagation()}>
+                      <p style={{ margin: 0, fontStyle: "italic" }}>
+                        <strong>AI:</strong> &quot;Hello Robert. How is your knee pain today?&quot;
+                      </p>
+                      <p style={{ margin: "4px 0 0 0", fontStyle: "italic" }}>
+                        <strong>Robert:</strong> &quot;It&apos;s a bit stiff, but I took the pain relief. It should get better soon.&quot;
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Call 3 */}
+                <div className={styles.dashTimelineItem} onClick={() => toggleCallExpand(3)}>
+                  <div className={styles.dashTimelineHeaderRow}>
+                    <div className={`${styles.dashTimelineIcon} ${styles.dashIconNeutral}`}>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="1" y1="1" x2="23" y2="23" />
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                      </svg>
+                    </div>
+                    <div className={styles.dashTimelineContent}>
+                      <div className={styles.dashTimelineTitleRow}>
+                        <span className={styles.dashTimelineTitle}>Lunch reminder</span>
+                        <span className={`${styles.dashBadge} ${styles.dashBadgeGrey}`}>No answer</span>
+                      </div>
+                      <span className={styles.dashTimelineMeta}>Eleanor • Today 12:00 PM</span>
+                    </div>
+                  </div>
+                  {expandedCallId === 3 && (
+                    <div className={styles.dashTimelineExpandedContent} onClick={(e) => e.stopPropagation()}>
+                      <p style={{ margin: 0, fontStyle: "italic", color: "#64748b" }}>
+                        <strong>System Log:</strong> Call placed at 12:00 PM. No answer after 60 seconds. Auto-hangup completed. Emergency contacts notified via SMS.
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* High-fidelity Alert Box */}
+              <div className={`${styles.dashAlertBox} ${alertAcknowledged ? styles.dashAlertBoxAcknowledged : ''}`}>
+                <div className={styles.dashAlertHeader}>
+                  <div className={`${styles.dashAlertIcon} ${alertAcknowledged ? styles.dashAlertIconGreen : ''}`}>
+                    {alertAcknowledged ? (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    ) : (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                        <line x1="12" y1="9" x2="12" y2="13" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                      </svg>
+                    )}
+                  </div>
+                  <div className={styles.dashAlertMeta}>
+                    <div className={`${styles.dashAlertTitle} ${alertAcknowledged ? styles.dashAlertTitleGreen : ''}`}>
+                      {alertAcknowledged ? "Alert Acknowledged" : "Missed reminder — Eleanor Johnson"}
+                    </div>
+                    <div className={`${styles.dashAlertDesc} ${alertAcknowledged ? styles.dashAlertDescGreen : ''}`}>
+                      {alertAcknowledged ? "Family contacts notified. Rescheduling call for 1:00 PM." : "Eleanor did not answer the 12:00 PM lunch reminder. This is her 2nd missed call today."}
+                    </div>
+                    <button
+                      onClick={() => setAlertAcknowledged(true)}
+                      className={alertAcknowledged ? styles.dashAlertAcknowledgeBtnGreen : styles.dashAlertAcknowledgeBtn}
+                      style={{ marginTop: "10px", width: "fit-content" }}
+                    >
+                      {alertAcknowledged ? "Acknowledged ✓" : "Acknowledge"}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -447,53 +633,19 @@ export default function Home() {
       <section id="pricing" className={styles.pricingSection}>
         <h2 className={styles.sectionTitle}>Simple, transparent pricing</h2>
         <p className={styles.sectionSub}>
-          Choose the plan that fits your family&apos;s care needs.
+          Choose the billing option that fits your family&apos;s care needs.
         </p>
 
         <div className={styles.pricingGrid}>
-          {/* Starter */}
+          {/* Monthly Plan */}
           <div className={styles.priceCard}>
-            <div className={styles.priceName}>Starter</div>
-            <div className={styles.priceAmount}>
-              <span className={styles.priceDollar}>$</span>
-              <span className={styles.priceNum}>19</span>
-              <span className={styles.pricePeriod}>/mo</span>
-            </div>
-            <p className={styles.priceDesc}>Perfect for basic reminders and check-ins.</p>
-            <div className={styles.priceDivider} />
-            <div className={styles.priceFeatures}>
-              <div className={styles.pfItem}>
-                <div className={styles.pfCheck}>✓</div>
-                1 Daily Wellness Call
-              </div>
-              <div className={styles.pfItem}>
-                <div className={styles.pfCheck}>✓</div>
-                Medication Reminders
-              </div>
-              <div className={styles.pfItem}>
-                <div className={styles.pfCheck}>✓</div>
-                Simple SMS Alerts
-              </div>
-              <div className={styles.pfItem}>
-                <div className={styles.pfCheck}>✓</div>
-                1 Family Member Access
-              </div>
-            </div>
-            <Link href="https://elder-ai-dashboard.vercel.app/signup?plan=starter" className={`${styles.btnPrice} ${styles.btnPriceGhost}`}>
-              Choose Starter
-            </Link>
-          </div>
-
-          {/* Family */}
-          <div className={`${styles.priceCard} ${styles.priceCardFeatured}`}>
-            <div className={styles.priceBadge}>POPULAR</div>
-            <div className={styles.priceName}>Family</div>
+            <div className={styles.priceName}>Monthly Plan</div>
             <div className={styles.priceAmount}>
               <span className={styles.priceDollar}>$</span>
               <span className={styles.priceNum}>39</span>
               <span className={styles.pricePeriod}>/mo</span>
             </div>
-            <p className={styles.priceDesc}>Our most popular plan for complete peace of mind.</p>
+            <p className={styles.priceDesc}>Flexible month-to-month coverage. Cancel anytime.</p>
             <div className={styles.priceDivider} />
             <div className={styles.priceFeatures}>
               <div className={styles.pfItem}>
@@ -506,19 +658,57 @@ export default function Home() {
               </div>
               <div className={styles.pfItem}>
                 <div className={styles.pfCheck}>✓</div>
-                Emergency Escalation Protocol
+                Medication & Pill Reminders
               </div>
               <div className={styles.pfItem}>
                 <div className={styles.pfCheck}>✓</div>
-                Sentiment Analysis & Dashboard
+                Immediate Emergency Alerts
               </div>
               <div className={styles.pfItem}>
                 <div className={styles.pfCheck}>✓</div>
-                5 Family Members Access
+                Unlimited Family Access
               </div>
             </div>
-            <Link href="https://elder-ai-dashboard.vercel.app/signup?plan=family" className={`${styles.btnPrice} ${styles.btnPriceFilled}`}>
-              Choose Family
+            <Link href="https://elder-ai-dashboard.vercel.app/signup?plan=monthly" className={`${styles.btnPrice} ${styles.btnPriceGhost}`}>
+              Choose Monthly
+            </Link>
+          </div>
+
+          {/* Yearly Plan */}
+          <div className={`${styles.priceCard} ${styles.priceCardFeatured}`}>
+            <div className={styles.priceBadge}>SAVE 25%</div>
+            <div className={styles.priceName}>Yearly Plan</div>
+            <div className={styles.priceAmount}>
+              <span className={styles.priceDollar}>$</span>
+              <span className={styles.priceNum}>29</span>
+              <span className={styles.pricePeriod}>/mo</span>
+            </div>
+            <p className={styles.priceDesc}>Billed annually ($348/yr). Best value for long-term care.</p>
+            <div className={styles.priceDivider} />
+            <div className={styles.priceFeatures}>
+              <div className={styles.pfItem}>
+                <div className={styles.pfCheck}>✓</div>
+                Everything in Monthly Plan
+              </div>
+              <div className={styles.pfItem}>
+                <div className={styles.pfCheck}>✓</div>
+                Save 25% (2 Months Free)
+              </div>
+              <div className={styles.pfItem}>
+                <div className={styles.pfCheck}>✓</div>
+                Priority Support & Setup
+              </div>
+              <div className={styles.pfItem}>
+                <div className={styles.pfCheck}>✓</div>
+                Advanced Weekly PDF Reports
+              </div>
+              <div className={styles.pfItem}>
+                <div className={styles.pfCheck}>✓</div>
+                Customizable Call Schedules
+              </div>
+            </div>
+            <Link href="https://elder-ai-dashboard.vercel.app/signup?plan=yearly" className={`${styles.btnPrice} ${styles.btnPriceFilled}`}>
+              Choose Yearly
             </Link>
           </div>
         </div>
@@ -529,22 +719,13 @@ export default function Home() {
         <div className={styles.footerInner}>
           <div className={styles.footerBrand}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              {/* <div style={{
-                width: "28px",
-                height: "28px",
-                borderRadius: "6px",
-                backgroundColor: "#451a03",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#fbbf24",
-                padding: "4px"
-              }}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8a7 7 0 0 1-9 8.2z" />
-                </svg>
-              </div> */}
-              <span style={{ fontSize: "18px", fontWeight: 800, color: "#0f172a" }}>ElderAI</span>
+              <Image
+                src="/logo.png"
+                alt="ElderAI Logo"
+                width={130}
+                height={32}
+                style={{ objectFit: "contain", height: "32px", width: "auto", filter: "grayscale(100%) brightness(0.7)", opacity: 0.8 }}
+              />
             </div>
             <p style={{ marginTop: "12px" }}>
               ElderAI — AI-powered wellness calls that remind, care, and keep families informed. Stay connected with elderly loved ones through intelligent voice calls.
@@ -556,13 +737,10 @@ export default function Home() {
             <a href="#how">How it works</a>
             <a href="#features">Features</a>
             <a href="#pricing">Pricing</a>
-            <a href="#analytics">Reporting</a>
           </div>
 
           <div className={styles.footerCol}>
             <h4>Company</h4>
-            <a href="#">About Us</a>
-            <a href="#">Careers</a>
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>
           </div>
@@ -570,18 +748,15 @@ export default function Home() {
           <div className={styles.footerCol}>
             <h4>Contact</h4>
             <a href="#">Support Center</a>
-            <a href="#">Sales Inquiry</a>
-            <a href="#">Media Kit</a>
-            <a href="#">API Docs</a>
           </div>
         </div>
 
         <div className={styles.footerBottom}>
           <div className={styles.footerBottomText}>
-            &copy; 2026 ElderAI Inc. All rights reserved.
+            &copy; {currentYear} ElderAI Inc. All rights reserved.
           </div>
           <div className={styles.footerBottomText} style={{ color: "rgba(15, 23, 42, 0.35)" }}>
-            Made with Next.js and ❤️ for families.
+            {/* Made with Next.js and ❤️ for families. */}
           </div>
         </div>
       </footer>
